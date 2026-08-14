@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portafolio Profesional Interactivo - Ingeniería en Desarrollo de Software, Desarrollo Web Fullstack, Bases de Datos y Cloud."
+    />
+    <meta name="author" content="Mauricio Valdez" />
+    <title>Mauricio Valdez | Portafolio Digital</title>
+
+    <!-- Google Fonts (Outfit & Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header & Navigation -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-accent">&lt;</span>Mauricio Valdez<span class="logo-accent"> /&gt;</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Abrir menú de navegación"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <nav class="nav-menu" id="nav-menu">
+          <a href="#hero" class="nav-link active">Inicio</a>
+          <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+          <a href="#cv-interactivo" class="nav-link">Currículum</a>
+          <a href="#proyectos" class="nav-link">Proyectos</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Cambiar tema de color"
+          >
+            <i class="bi bi-sun-fill" id="theme-icon-light"></i>
+            <i class="bi bi-moon-stars-fill" id="theme-icon-dark"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-bg-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+        </div>
+
+        <div class="container hero-container">
+          <div class="hero-content">
+            <div class="hero-badge reveal">
+              <span class="badge-dot"></span>
+              Ingeniería en Desarrollo de Software & Web
+            </div>
+
+            <h1 class="hero-title reveal">
+              Hola, soy <br />
+              <span class="text-gradient">Mauricio Valdez</span>
+            </h1>
+
+            <p class="hero-subtitle reveal">
+              Especializado en desarrollo web moderno frontend y backend, gestión de bases de datos relacionales y no relacionales, infraestructura cloud y soluciones tecnológicas con código limpio y eficiente.
+            </p>
+
+            <div class="hero-actions reveal">
+              <a href="#proyectos" class="btn btn-primary">
+                <i class="bi bi-briefcase me-2"></i>Ver Proyectos
+              </a>
+              <a
+                href="#contacto"
+                class="btn btn-secondary"
+              >
+                <i class="bi bi-envelope me-2"></i>Contactar
+              </a>
+            </div>
+
+
+          </div>
+
+          <div class="hero-image-container reveal">
+            <div class="profile-glow"></div>
+            <div class="profile-frame">
+              <img
+                src="assets/Foto cv.jpeg"
+                alt="Mauricio Valdez Vicencio"
+                class="profile-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <a href="#sobre-mi" aria-label="Desplazarse hacia abajo">
+            <span class="mouse">
+              <span class="wheel"></span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Sobre Mí Section -->
+      <section id="sobre-mi" class="section sobre-mi-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-tagline">Presentación</span>
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="section-underline"></div>
+          </div>
+
+          <div class="sobre-mi-grid">
+            <div class="sobre-mi-text reveal-left">
+              <h3 class="bio-title">Pasión por la tecnología y la innovación</h3>
+              <p class="bio-p">
+                Soy un <strong>estudiante e ingeniero en desarrollo de software</strong> enfocado en construir experiencias digitales modernas, escalables e intuitivas. Mi formación abarca desde el diseño de interfaces frontend hasta el desarrollo de arquitectura backend sólida y redes de comunicación.
+              </p>
+              <p class="bio-p">
+                Me caracteriza la curiosidad constante por aprender nuevas tecnologías, la capacidad analítica para resolver problemas complejos en equipo y el compromiso con las buenas prácticas de código limpio (Clean Code) e integración continua.
+              </p>
+
+              <div class="personal-details">
+                <div class="detail-item">
+                  <i class="bi bi-mortarboard detail-icon"></i>
+                  <div>
+                    <span class="detail-label">Especialidad</span>
+                    <span class="detail-val">TSU en Tecnologías de la Información e Innovación Digital</span>
+                  </div>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-translate detail-icon"></i>
+                  <div>
+                    <span class="detail-label">Idiomas</span>
+                    <span class="detail-val">Español (Nativo) | Inglés (B2+)</span>
+                  </div>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-shield-check detail-icon"></i>
+                  <div>
+                    <span class="detail-label">Valores</span>
+                    <span class="detail-val">Trabajo en Equipo, Proactividad & Responsabilidad</span>
+                  </div>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-geo-alt detail-icon"></i>
+                  <div>
+                    <span class="detail-label">Ubicación</span>
+                    <span class="detail-val">Granjas 2, 35018, Gómez Palacio, Dgo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sobre-mi-cards reveal-right">
+              <div class="about-card card-glow">
+                <i class="bi bi-journal-code card-icon text-gradient"></i>
+                <h4>Desarrollo Web & Fullstack</h4>
+                <p>
+                  Creación de aplicaciones web dinámicas con HTML5, CSS3, JavaScript ES6+ e integración con APIs RESTful.
+                </p>
+              </div>
+              <div class="about-card card-glow">
+                <i class="bi bi-database-check card-icon text-gradient"></i>
+                <h4>Bases de Datos & Cloud</h4>
+                <p>
+                  Modelado y gestión de bases de datos relacionales (MySQL, PostgreSQL) y soluciones cloud (Supabase, Firebase).
+                </p>
+              </div>
+              <div class="about-card card-glow">
+                <i class="bi bi-router card-icon text-gradient"></i>
+                <h4>Redes & Infraestructura</h4>
+                <p>
+                  Fundamentos de conectividad, configuración de redes LAN/VLAN, direccionamiento IP y protocolos TCP/IP.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CV Interactivo Section -->
+      <section id="cv-interactivo" class="section cv-section bg-alt">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-tagline">Currículum</span>
+            <h2 class="section-title">Trayectoria e Información</h2>
+            <div class="section-underline"></div>
+          </div>
+
+          <!-- Tab Controls -->
+          <div class="tab-controls-container reveal">
+            <div class="tab-controls">
+              <button class="tab-btn active" data-tab="educacion">
+                <i class="bi bi-mortarboard me-2"></i>Educación
+              </button>
+              <button class="tab-btn" data-tab="habilidades">
+                <i class="bi bi-tools me-2"></i>Habilidades
+              </button>
+              <button class="tab-btn" data-tab="certificaciones">
+                <i class="bi bi-patch-check me-2"></i>Certificaciones
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content-container reveal">
+            <!-- Educación Tab Content -->
+            <div class="tab-panel active" id="tab-educacion">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-info">
+                    <span class="timeline-date">2024 - Presente</span>
+                    <h3 class="timeline-title">
+                      TSU en Tecnologías de la Información e Innovación Digital
+                    </h3>
+                    <span class="timeline-location">Universidad Tecnológica de La Laguna Durango</span>
+                    <p class="timeline-desc">
+                      Formación profesional superior en desarrollo de software, arquitectura de sistemas, ingeniería web frontend/backend, desarrollo móvil, base de datos relacionales/no relacionales y control de versiones con Git & GitHub.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-info">
+                    <span class="timeline-date">2021 - 2024</span>
+                    <h3 class="timeline-title">Técnico en Programación</h3>
+                    <span class="timeline-location">Colegio de Estudios Científicos y Tecnológicos del Estado de Durango</span>
+                    <p class="timeline-desc">
+                      Educación media superior con especialización en lógica de programación, algoritmos estructurados, programación orientada a objetos (POO) y diseño de bases de datos relacionales.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Habilidades Tab Content -->
+            <div class="tab-panel" id="tab-habilidades">
+              <div class="skills-grid">
+                <!-- Category 1 -->
+                <div class="skills-category-card">
+                  <div class="category-header">
+                    <i class="bi bi-code-slash text-gradient"></i>
+                    <h4>Desarrollo Frontend</h4>
+                  </div>
+                  <ul class="skills-list">
+                    <li>
+                      <div class="skill-info">
+                        <span>HTML5 & CSS3 Semántico</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>JavaScript (ES6+)</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>Diseño Responsivo & UI</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 65%"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="skills-category-card">
+                  <div class="category-header">
+                    <i class="bi bi-braces-asterisk text-gradient"></i>
+                    <h4>Backend & Lenguajes</h4>
+                  </div>
+                  <ul class="skills-list">
+                    <li>
+                      <div class="skill-info">
+                        <span>Python</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>Node.js / Express</span>
+                        <span>Básico</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 55%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>Java</span>
+                        <span>Básico</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 50%"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="skills-category-card">
+                  <div class="category-header">
+                    <i class="bi bi-database text-gradient"></i>
+                    <h4>Bases de Datos & Cloud</h4>
+                  </div>
+                  <ul class="skills-list">
+                    <li>
+                      <div class="skill-info">
+                        <span>MySQL / SQL</span>
+                        <span>Avanzado</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>Supabase & PostgreSQL</span>
+                        <span>Avanzado</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 82%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>Firebase Realtime DB</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 78%"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="skills-category-card">
+                  <div class="category-header">
+                    <i class="bi bi-terminal text-gradient"></i>
+                    <h4>Herramientas & Git</h4>
+                  </div>
+                  <ul class="skills-list">
+                    <li>
+                      <div class="skill-info">
+                        <span>Git & GitHub</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>VS Code & DevTools</span>
+                        <span>Intermedio</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="skill-info">
+                        <span>Redes LAN & Cisco Packet Tracer</span>
+                        <span>Básico</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div class="skill-progress" style="width: 50%"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certificaciones Tab Content -->
+            <div class="tab-panel" id="tab-certificaciones">
+              <div class="certs-container">
+                <!-- Cert 1 -->
+                <div class="cert-card">
+                  <div class="cert-badge">
+                    <i class="bi bi-award-fill"></i>
+                  </div>
+                  <div class="cert-info">
+                    <h4>Certificación Networking Basics</h4>
+                    <span class="cert-issuer">Cisco Networking Academy</span>
+                    <p>
+                      Fundamentos de arquitectura de redes, subredes IP, enrutamiento básico y protocolos de comunicación.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="cert-card">
+                  <div class="cert-badge">
+                    <i class="bi bi-universal-access"></i>
+                  </div>
+                  <div class="cert-info">
+                    <h4>Tecnología sin Barreras: Introducción a la Accesibilidad Digital</h4>
+                    <span class="cert-issuer">Curso Especializado</span>
+                    <p>
+                      Metodologías y buenas prácticas para la creación de sitios y aplicaciones web accesibles para personas con discapacidades.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="cert-card">
+                  <div class="cert-badge">
+                    <i class="bi bi-cpu-fill"></i>
+                  </div>
+                  <div class="cert-info">
+                    <h4>Formación en Inteligencia Artificial (CPFIA)</h4>
+                    <span class="cert-issuer">Tecnológico Nacional de México (TecNM) | SEP</span>
+                    <p>
+                      Constancia acreditada del Curso Propedéutico del Centro Público de Formación en Inteligencia Artificial (Clave CPFCDE-CPF, Julio 2026).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proyectos Section -->
+      <section id="proyectos" class="section proyectos-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-tagline">Portafolio</span>
+            <h2 class="section-title">Mis Proyectos</h2>
+            <div class="section-underline"></div>
+          </div>
+
+
+
+          <!-- Projects Grid -->
+          <div class="projects-grid">
+            <!-- Project 1: Casas en Renta -->
+            <div class="project-card reveal" data-category="database">
+              <div class="project-image">
+                <img
+                  src="assets/LOGO MAPAS.jpeg"
+                  alt="Mapa de Casas en Renta - Comarca Lagunera"
+                />
+                <div class="project-overlay">
+                  <a
+                    href="maufinalcasas/index.html"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link-btn"
+                    aria-label="Abrir Mapa de Casas en Renta"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-details">
+                <span class="project-category">Bases de Datos &amp; Realtime</span>
+                <h3>Mapa de Casas en Renta</h3>
+                <p>
+                  Plataforma web interactiva para buscar y registrar viviendas en renta disponibles en la Comarca Lagunera (Gómez Palacio, Torreón y Lerdo), conectada con mapas geolocalizados y base de datos en tiempo real.
+                </p>
+                <div class="project-tags">
+                  <span>JavaScript</span>
+                  <span>Leaflet API</span>
+                  <span>Supabase</span>
+                  <span>Geolocalización</span>
+                </div>
+                <div class="project-action-link">
+                  <a
+                    href="maufinalcasas/index.html"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Acceso Rápido <i class="bi bi-arrow-right-short"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Control de Acceso Residencial -->
+            <div class="project-card reveal" data-category="database">
+              <div class="project-image">
+                <img
+                  src="assets/LOGO ACCESO.jpeg"
+                  alt="Sistema de Control de Acceso Residencial"
+                />
+                <div class="project-overlay">
+                  <a
+                    href="Practica BD/index.html"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link-btn"
+                    aria-label="Abrir Control de Acceso Residencial"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-details">
+                <span class="project-category">Bases de Datos &amp; Full-Stack PHP</span>
+                <h3>Control de Acceso Residencial</h3>
+                <p>
+                  Sistema web administrativo y de monitoreo en tiempo real para casetas de seguridad y administración de fraccionamientos. Permite la gestión de entradas, salidas, residentes y bitácora con backend PHP y MySQL.
+                </p>
+                <div class="project-tags">
+                  <span>PHP 8.x</span>
+                  <span>MySQL</span>
+                  <span>REST API</span>
+                  <span>JavaScript ES6+</span>
+                </div>
+                <div class="project-action-link">
+                  <a
+                    href="Practica BD/index.html"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Acceso Rápido <i class="bi bi-arrow-right-short"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacto Section -->
+      <section id="contacto" class="section contacto-section bg-alt">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-tagline">Contacto</span>
+            <h2 class="section-title">Ponte en Contacto</h2>
+            <div class="section-underline"></div>
+          </div>
+
+          <div class="contacto-grid">
+            <div class="contact-info-cards reveal-left">
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div class="contact-text">
+                  <label>Correo Electrónico</label>
+                  <a href="mailto:mauriciovaldez479@gmail.com">mauriciovaldez479@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="bi bi-whatsapp"></i>
+                </div>
+                <div class="contact-text">
+                  <label>WhatsApp / Teléfono</label>
+                  <a href="https://wa.me/528712004956" target="_blank" rel="noopener">+52 (871) 200-4956</a>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="contact-text">
+                  <label>Ubicación</label>
+                  <span>Granjas 2, 35018, Gómez Palacio, Dgo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-container reveal-right">
+              <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                  <label for="name">Nombre Completo</label>
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    placeholder="Tu nombre o empresa"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Correo Electrónico</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="tu@correo.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Asunto</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    class="form-control"
+                    placeholder="Propuesta de proyecto / consulta"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Mensaje</label>
+                  <textarea
+                    id="message"
+                    class="form-control"
+                    placeholder="Escribe aquí los detalles de tu mensaje..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div id="form-status" class="form-status"></div>
+
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-send-fill me-2"></i>Enviar Mensaje
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-accent">&lt;</span>Mauricio Valdez<span class="logo-accent"> /&gt;</span>
+        </a>
+        <a href="#hero" class="back-to-top" aria-label="Volver arriba">
+          <i class="bi bi-arrow-up"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+  </body>
+</html>
