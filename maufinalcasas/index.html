@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Mapa de Casas en Renta | Comarca Lagunera</title>
+    <meta name="description" content="Encuentra y comparte ubicaciones de casas en renta disponibles en Gómez Palacio, Torreón y Lerdo." />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- FontAwesome Icons -->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Custom Modern CSS -->
+    <link href="custom.css" rel="stylesheet" />
+
+    <!-- LEAFLET CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+
+  <body id="page-top">
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#page-top">
+          <span class="brand-icon"><i class="fas fa-house-chimney"></i></span>
+          <span>Casas <span style="color: var(--color-primary-light);">Laguna</span></span>
+        </a>
+        <button
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#mapa">Mapa de Ubicaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#signup">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER HERO -->
+    <header class="masthead">
+      <div
+        class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center"
+      >
+        <div class="text-center">
+          <div class="hero-badge">
+            <i class="fas fa-location-dot"></i> Comarca Lagunera
+          </div>
+
+          <h1 class="text-uppercase">Mapa de Casas en Renta</h1>
+
+          <h2 class="mx-auto">
+            Localiza propiedades disponibles y comparte nuevas ubicaciones de casas en renta en Gómez Palacio, Torreón y Lerdo.
+          </h2>
+
+          <a class="btn btn-primary btn-pill shadow" href="#mapa">
+            <i class="fas fa-map-location-dot me-2"></i> Explorar Mapa
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section text-center" id="about">
+      <div class="container px-4 px-lg-5">
+        <div class="feature-glass-card mx-auto" style="max-width: 800px">
+          <h2 class="text-white mb-3 fw-bold">
+            <i class="fas fa-layer-group me-2" style="color: var(--color-primary-light);"></i>
+            Localizador Interactivo en Tiempo Real
+          </h2>
+          <p class="text-muted mb-4 fs-5">
+            Plataforma para consultar y registrar casas en renta disponibles en la región.
+          </p>
+
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <span class="tech-badge"><i class="fab fa-bootstrap"></i> Bootstrap 5</span>
+            <span class="tech-badge"><i class="fas fa-map"></i> Leaflet Maps</span>
+            <span class="tech-badge"><i class="fas fa-database"></i> Supabase DB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION MAPA -->
+    <section class="projects-section" id="mapa">
+      <div class="container px-4 px-lg-5">
+        <div class="map-card-wrapper">
+          <div class="map-header-bar">
+            <h3 class="map-header-title">
+              <i class="fas fa-map-pin"></i> Mapa de Casas en Renta
+            </h3>
+            <div class="small text-muted d-none d-md-block">
+              <i class="fas fa-mouse-pointer me-1"></i> Haz clic en cualquier lugar del mapa para agregar una renta
+            </div>
+          </div>
+
+          <div id="map"></div>
+
+          <div class="city-filters" id="cityFilterContainer">
+            <button class="btn btn-city active" id="btnGomez" onclick="irGomez()">
+              <i class="fas fa-building"></i> Gómez Palacio
+            </button>
+
+            <button class="btn btn-city" id="btnTorreon" onclick="irTorreon()">
+              <i class="fas fa-city"></i> Torreón
+            </button>
+
+            <button class="btn btn-city" id="btnLerdo" onclick="irLerdo()">
+              <i class="fas fa-tree"></i> Lerdo
+            </button>
+
+            <button class="btn btn-secondary btn-pill" id="btnRegional" onclick="cambiarZoom(12)">
+              <i class="fas fa-globe"></i> Vista Regional
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL AGREGAR CASA -->
+    <dialog id="miPopup">
+      <div class="modal-content-glass">
+        <div class="modal-header-custom">
+          <div class="modal-header-icon">
+            <i class="fas fa-house-medical"></i>
+          </div>
+          <div>
+            <h4 class="modal-title-custom">Agregar Casa en Renta</h4>
+            <div class="small text-muted">Ingresa los detalles de la propiedad</div>
+          </div>
+        </div>
+
+        <form method="dialog">
+          <div class="mb-3">
+            <label class="form-label-custom">
+              <i class="fas fa-dollar-sign text-warning"></i> Precio por mes
+            </label>
+            <input
+              type="text"
+              id="precio"
+              class="form-control form-control-custom"
+              placeholder="Ej. $4,500 MXN / mes"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label-custom">
+              <i class="fas fa-align-left text-info"></i> Descripción
+            </label>
+            <input
+              type="text"
+              id="descripcion"
+              class="form-control form-control-custom"
+              placeholder="Ej. Casa 3 recámaras, 2 baños, cochera"
+            />
+          </div>
+
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <label class="form-label-custom">
+                <i class="fas fa-road"></i> Entre calle
+              </label>
+              <input
+                type="text"
+                id="calle1"
+                class="form-control form-control-custom"
+                placeholder="Calle 1"
+              />
+            </div>
+            <div class="col-6">
+              <label class="form-label-custom">
+                <i class="fas fa-road"></i> Y calle
+              </label>
+              <input
+                type="text"
+                id="calle2"
+                class="form-control form-control-custom"
+                placeholder="Calle 2"
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label-custom">
+              <i class="fas fa-location-crosshairs text-success"></i> Coordenadas
+            </label>
+            <input
+              type="text"
+              id="coords-display"
+              class="form-control form-control-custom text-muted"
+              readonly
+            />
+          </div>
+
+          <div class="d-flex justify-content-end gap-2">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="document.getElementById('miPopup').close()"
+            >
+              Cancelar
+            </button>
+            <button type="button" id="btn-save" class="btn btn-primary">
+              <i class="fas fa-floppy-disk me-1"></i> Guardar Propiedad
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- SIGNUP SECTION -->
+    <section class="signup-section" id="signup">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+          <div class="col-md-10 col-lg-8 mx-auto text-center">
+            <div class="contact-icon-wrapper mb-3">
+              <i class="far fa-paper-plane"></i>
+            </div>
+            <h2 class="text-white mb-4 fw-bold">¡Recibe actualizaciones de rentas!</h2>
+            <form
+              class="form-signup"
+              id="contactForm"
+              data-sb-form-api-token="API_TOKEN"
+            >
+              <div class="row input-group-newsletter g-2 justify-content-center">
+                <div class="col-md-8">
+                  <input
+                    class="form-control form-control-custom"
+                    id="emailAddress"
+                    type="email"
+                    placeholder="Tu correo electrónico..."
+                    aria-label="Tu correo electrónico..."
+                    data-sb-validations="required,email"
+                  />
+                </div>
+                <div class="col-md-4 col-auto">
+                  <button
+                    class="btn btn-primary w-100 disabled"
+                    id="submitButton"
+                    type="submit"
+                  >
+                    Notificarme
+                  </button>
+                </div>
+              </div>
+              <div
+                class="invalid-feedback mt-2"
+                data-sb-feedback="emailAddress:required"
+              >
+                Se requiere un correo electrónico.
+              </div>
+              <div
+                class="invalid-feedback mt-2"
+                data-sb-feedback="emailAddress:email"
+              >
+                El correo electrónico no es válido.
+              </div>
+              <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3 mt-2 text-white">
+                  <div class="fw-bolder">¡Suscripción enviada con éxito!</div>
+                </div>
+              </div>
+              <div class="d-none" id="submitErrorMessage">
+                <div class="text-center text-danger mb-3 mt-2">
+                  Error al enviar el mensaje.
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="contact-card text-center">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h4 class="text-uppercase m-0">Ubicación</h4>
+              <hr class="my-3 mx-auto" />
+              <div class="small text-muted">
+                UTLD. Ejido las Cuevas, Lerdo Durango, Mex.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="contact-card text-center">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h4 class="text-uppercase m-0">Correo Electrónico</h4>
+              <hr class="my-3 mx-auto" />
+              <div class="small text-muted">
+                <a href="mailto:mauriciovaldez479@gmail.com"
+                  >mauriciovaldez479@gmail.com</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="contact-card text-center">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h4 class="text-uppercase m-0">Teléfono</h4>
+              <hr class="my-3 mx-auto" />
+              <div class="small text-muted">
+                <p class="mb-1 text-white fw-bold">Mauricio Valdez Vicencio</p>
+                87-12-00-49-56
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social d-flex justify-content-center gap-3 mt-5">
+          <a href="#!"><i class="fab fa-twitter"></i></a>
+          <a href="#!"><i class="fab fa-facebook-f"></i></a>
+          <a href="#!"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer small text-center text-white-50">
+      <div class="container px-4 px-lg-5">Copyright © 2026 • Mapa de Casas en Renta Laguna</div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- LEAFLET JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/scripts.js"></script>
+
+    <!-- MAPA JS -->
+    <script>
+      const SUPABASE_URL = "https://hhhcdhmrnrfoqbzbhjhj.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_ZRMhDKJUlQdTn5_dglJUhQ_BM-Ptcig";
+      const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      const coordsGomez = [25.57308, -103.49477];
+      const coordsTorreon = [25.5439, -103.419];
+      const coordsLerdo = [25.53651, -103.52507];
+
+      const map = L.map("map").setView(coordsGomez, 13);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      function formatPopupContent(precio, descripcion, calle1, calle2, isSuccess = false) {
+        return `
+          <div class="custom-popup-card">
+            <div class="custom-popup-price">
+              <i class="fas fa-tag me-1"></i>${precio}
+            </div>
+            <div class="custom-popup-desc">
+              ${descripcion ? descripcion : "Casa en renta"}
+            </div>
+            <div class="custom-popup-streets">
+              <i class="fas fa-location-arrow text-teal me-1"></i> Entre ${calle1 || 'N/A'} y ${calle2 || 'N/A'}
+            </div>
+            ${isSuccess ? '<div class="small text-success mt-2 fw-bold"><i class="fas fa-circle-check me-1"></i> Guardado correctamente</div>' : ''}
+          </div>
+        `;
+      }
+
+      async function cargarMarcadores() {
+        const { data, error } = await _supabase
+          .from("CasasEnRentaLaguna")
+          .select("*");
+
+        if (error) {
+          console.error("Error al cargar datos:", error);
+          return;
+        }
+
+        data.forEach((casa) => {
+          const marcador = L.marker([casa.LATITUDE, casa.LONGITUDE]).addTo(map);
+          marcador.bindPopup(
+            formatPopupContent(casa.PRECIO, casa.DESCRIPCION, casa.CALLE1, casa.CALLE2)
+          );
+        });
+      }
+      cargarMarcadores();
+
+      let marcadorGomez = L.marker(coordsGomez).addTo(map);
+      marcadorGomez
+        .bindPopup(`
+          <div class="custom-popup-card">
+            <span class="custom-popup-price" style="background: var(--gradient-brand);">
+              <i class="fas fa-city me-1"></i> Gómez Palacio
+            </span>
+            <div class="custom-popup-desc">Centro de Gómez Palacio</div>
+          </div>
+        `)
+        .openPopup();
+
+      function setCityActive(btnId) {
+        const buttons = document.querySelectorAll('.btn-city');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        if (btnId) {
+          const activeBtn = document.getElementById(btnId);
+          if (activeBtn) activeBtn.classList.add('active');
+        }
+      }
+
+      function irGomez() {
+        setCityActive('btnGomez');
+        map.flyTo(coordsGomez, 14);
+      }
+
+      function irTorreon() {
+        setCityActive('btnTorreon');
+        map.flyTo(coordsTorreon, 13);
+      }
+
+      function irLerdo() {
+        setCityActive('btnLerdo');
+        map.flyTo(coordsLerdo, 14);
+      }
+
+      function cambiarZoom(nivel) {
+        setCityActive(null);
+        map.setZoom(nivel);
+      }
+
+      const modal = document.querySelector("#miPopup");
+      const inputPrecio = document.querySelector("#precio");
+      const inputDescripcion = document.querySelector("#descripcion");
+      const inputCalle1 = document.querySelector("#calle1");
+      const inputCalle2 = document.querySelector("#calle2");
+      const inputCoords = document.querySelector("#coords-display");
+      const btnSave = document.querySelector("#btn-save");
+
+      let tempLatLng = null;
+
+      map.on("click", function (e) {
+        tempLatLng = e.latlng;
+        inputCoords.value =
+          tempLatLng.lat.toFixed(5) + ", " + tempLatLng.lng.toFixed(5);
+        modal.showModal();
+      });
+
+      btnSave.onclick = async function () {
+        const precio = inputPrecio.value.trim();
+        const descripcion = inputDescripcion.value.trim();
+        const calle1 = inputCalle1.value.trim();
+        const calle2 = inputCalle2.value.trim();
+
+        if (precio.length < 2) {
+          alert("Por favor ingresa un precio válido.");
+          return;
+        }
+
+        modal.close();
+
+        const marcador = L.marker([tempLatLng.lat, tempLatLng.lng]).addTo(map);
+        marcador.bindPopup(`
+          <div class="custom-popup-card">
+            <div class="small text-info"><i class="fas fa-spinner fa-spin me-1"></i> Guardando propiedad...</div>
+          </div>
+        `).openPopup();
+
+        try {
+          const { error } = await _supabase.from("CasasEnRentaLaguna").insert([
+            {
+              LATITUDE: tempLatLng.lat,
+              LONGITUDE: tempLatLng.lng,
+              PRECIO: precio,
+              DESCRIPCION: descripcion,
+              CALLE1: calle1,
+              CALLE2: calle2,
+            },
+          ]);
+
+          if (error) throw error;
+
+          marcador.setPopupContent(
+            formatPopupContent(precio, descripcion, calle1, calle2, true)
+          );
+        } catch (err) {
+          marcador.setPopupContent(`
+            <div class="custom-popup-card">
+              <div class="small text-danger"><i class="fas fa-triangle-exclamation me-1"></i> Error al guardar la propiedad</div>
+            </div>
+          `);
+          console.error(err);
+        }
+      };
+    </script>
+  </body>
+</html>
