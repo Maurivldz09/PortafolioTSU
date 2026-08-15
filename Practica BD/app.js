@@ -72,7 +72,7 @@ class ControlAccesoApp {
       // Fallback a modo Demo Local en memoria
       this.modoConexion = 'DEMO';
       this.cargarDatosDemoMock();
-      this.setConnectionStatus('DEMO', '⚡ Modo Demo');
+      this.setConnectionStatus('DEMO', 'Modo Demostración');
       document.getElementById('alert-db-error').style.display = 'block';
     }
   }
@@ -135,7 +135,7 @@ class ControlAccesoApp {
       }));
 
       this.modoConexion = 'SUPABASE';
-      this.setConnectionStatus('SUPABASE', '☁️ Supabase Nube');
+      this.setConnectionStatus('SUPABASE', 'Supabase Cloud DB');
       document.getElementById('alert-db-error').style.display = 'none';
       this.populateSelectResidentes();
       this.renderAll();
@@ -166,7 +166,7 @@ class ControlAccesoApp {
         this.visitantes = jsonV.data || [];
 
         this.modoConexion = 'XAMPP';
-        this.setConnectionStatus('XAMPP', '🔌 XAMPP Local');
+        this.setConnectionStatus('XAMPP', 'XAMPP Local MySQL');
         document.getElementById('alert-db-error').style.display = 'none';
         this.populateSelectResidentes();
         this.renderAll();

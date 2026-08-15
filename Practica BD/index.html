@@ -8,10 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Supabase JS Client CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=5.0">
+  <link rel="stylesheet" href="styles.css?v=6.0">
 </head>
 <body>
 
@@ -21,7 +23,7 @@
     <aside class="sidebar">
       <div>
         <div class="brand">
-          <div class="brand-logo">🛡️</div>
+          <div class="brand-logo"><i class="bi bi-shield-lock-fill"></i></div>
           <div class="brand-text">
             <h2>Caseta Control</h2>
             <span>Gestión Residencial</span>
@@ -30,23 +32,23 @@
 
         <ul class="nav-menu">
           <li class="nav-item active" data-tab="dashboard">
-            <span class="icon">🏠</span>
+            <span class="icon"><i class="bi bi-speedometer2"></i></span>
             <span>Dashboard</span>
           </li>
           <li class="nav-item" data-tab="nuevo-registro">
-            <span class="icon">📝</span>
+            <span class="icon"><i class="bi bi-pencil-square"></i></span>
             <span>Registrar Entrada</span>
           </li>
           <li class="nav-item" data-tab="accesos">
-            <span class="icon">📋</span>
+            <span class="icon"><i class="bi bi-journal-text"></i></span>
             <span>Bitácora de Accesos</span>
           </li>
           <li class="nav-item" data-tab="residentes">
-            <span class="icon">🏘️</span>
+            <span class="icon"><i class="bi bi-buildings-fill"></i></span>
             <span>Gestión Residentes</span>
           </li>
           <li class="nav-item" data-tab="visitantes">
-            <span class="icon">👤</span>
+            <span class="icon"><i class="bi bi-person-fill"></i></span>
             <span>Catálogo Visitantes</span>
           </li>
         </ul>
@@ -54,7 +56,7 @@
 
       <div class="sidebar-footer">
         <div class="connection-status connected" id="connection-status-indicator">
-          <span class="status-dot"></span> <span id="connection-status-text">☁️ Supabase Nube</span>
+          <span class="status-dot"></span> <span id="connection-status-text">Supabase Nube</span>
         </div>
       </div>
     </aside>
@@ -70,10 +72,10 @@
         </div>
         <div class="header-actions">
           <button class="btn btn-secondary" onclick="app.syncAll()">
-            <span>🔄</span> Sincronizar
+            <i class="bi bi-arrow-repeat me-1"></i> Sincronizar
           </button>
           <button class="btn btn-primary" onclick="app.exportarCSV()">
-            <span>📥</span> Exportar Bitácora CSV
+            <i class="bi bi-download me-1"></i> Exportar Bitácora CSV
           </button>
         </div>
       </header>
@@ -85,7 +87,7 @@
             <h3>En Fraccionamiento</h3>
             <div class="number" id="stat-dentro">0</div>
           </div>
-          <div class="stat-icon icon-green">🚗</div>
+          <div class="stat-icon icon-green"><i class="bi bi-car-front-fill"></i></div>
         </div>
 
         <div class="stat-card">
@@ -93,7 +95,7 @@
             <h3>Salidas Hoy</h3>
             <div class="number" id="stat-salidos">0</div>
           </div>
-          <div class="stat-icon icon-indigo">🚪</div>
+          <div class="stat-icon icon-indigo"><i class="bi bi-box-arrow-right"></i></div>
         </div>
 
         <div class="stat-card">
@@ -101,7 +103,7 @@
             <h3>Total Accesos Hoy</h3>
             <div class="number" id="stat-total-hoy">0</div>
           </div>
-          <div class="stat-icon icon-cyan">📊</div>
+          <div class="stat-icon icon-cyan"><i class="bi bi-bar-chart-fill"></i></div>
         </div>
 
         <div class="stat-card">
@@ -109,7 +111,7 @@
             <h3>Total Residentes</h3>
             <div class="number" id="stat-residentes">0</div>
           </div>
-          <div class="stat-icon icon-amber">🏘️</div>
+          <div class="stat-icon icon-amber"><i class="bi bi-buildings-fill"></i></div>
         </div>
       </div>
 
@@ -117,7 +119,7 @@
       <section id="tab-dashboard" class="tab-content active">
         <div class="card-panel">
           <div class="card-header">
-            <h2><span>📋</span> Últimos Accesos Registrados</h2>
+            <h2><i class="bi bi-journal-text me-2"></i> Últimos Accesos Registrados</h2>
             <button class="btn btn-secondary" style="font-size: 0.85rem;" onclick="app.irATab('accesos')">Ver Bitácora Completa →</button>
           </div>
           <div class="table-responsive">
@@ -146,7 +148,7 @@
       <section id="tab-nuevo-registro" class="tab-content">
         <div class="card-panel">
           <div class="card-header">
-            <h2><span>📝</span> Registrar Entrada de Visitante en Caseta</h2>
+            <h2><i class="bi bi-pencil-square me-2"></i> Registrar Entrada de Visitante en Caseta</h2>
           </div>
 
           <form id="form-registro" onsubmit="app.guardarRegistro(event)">
@@ -208,7 +210,7 @@
 
             <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
               <button type="submit" class="btn btn-primary">
-                <span>💾</span> Registrar Entrada en Base de Datos
+                <i class="bi bi-floppy me-1"></i> Registrar Entrada en Base de Datos
               </button>
               <button type="reset" class="btn btn-secondary">Limpiar Formulario</button>
             </div>
@@ -220,16 +222,16 @@
       <section id="tab-accesos" class="tab-content">
         <div class="card-panel">
           <div class="card-header">
-            <h2><span>📋</span> Bitácora General de Accesos (Entradas y Salidas)</h2>
+            <h2><i class="bi bi-journal-text me-2"></i> Bitácora General de Accesos (Entradas y Salidas)</h2>
             <button class="btn btn-primary" style="font-size: 0.85rem;" onclick="app.exportarCSV()">
-              <span>📥</span> Descargar Reporte CSV
+              <i class="bi bi-download me-1"></i> Descargar Reporte CSV
             </button>
           </div>
 
           <!-- FILTROS -->
           <div class="filter-bar">
             <div class="search-box">
-              <span class="search-icon">🔍</span>
+              <span class="search-icon"><i class="bi bi-search"></i></span>
               <input type="text" id="input-busqueda" class="form-control" placeholder="Buscar por visitante, número de casa, residente o motivo..." oninput="app.filtrarAccesos()">
             </div>
 
@@ -269,8 +271,8 @@
       <section id="tab-residentes" class="tab-content">
         <div class="card-panel">
           <div class="card-header">
-            <h2><span>🏘️</span> Catálogo de Residentes</h2>
-            <button class="btn btn-primary" onclick="app.abrirModalResidente()"><span>➕</span> Nuevo Residente</button>
+            <h2><i class="bi bi-buildings-fill me-2"></i> Catálogo de Residentes</h2>
+            <button class="btn btn-primary" onclick="app.abrirModalResidente()"><i class="bi bi-plus-lg me-1"></i> Nuevo Residente</button>
           </div>
           <div class="table-responsive">
             <table class="data-table">
@@ -296,8 +298,8 @@
       <section id="tab-visitantes" class="tab-content">
         <div class="card-panel">
           <div class="card-header">
-            <h2><span>👤</span> Catálogo de Visitantes Frecuentes</h2>
-            <button class="btn btn-primary" onclick="app.abrirModalVisitante()"><span>➕</span> Nuevo Visitante</button>
+            <h2><i class="bi bi-person-fill me-2"></i> Catálogo de Visitantes Frecuentes</h2>
+            <button class="btn btn-primary" onclick="app.abrirModalVisitante()"><i class="bi bi-plus-lg me-1"></i> Nuevo Visitante</button>
           </div>
           <div class="table-responsive">
             <table class="data-table">
@@ -326,7 +328,7 @@
   <div id="modal-editar-acceso" class="modal-backdrop" style="display: none;">
     <div class="card-panel modal-card">
       <div class="card-header">
-        <h2><span>✏️</span> Editar Registro de Acceso</h2>
+        <h2><i class="bi bi-pencil-fill me-2"></i> Editar Registro de Acceso</h2>
         <button class="btn btn-secondary" onclick="app.cerrarModales()" style="padding: 0.3rem 0.6rem;">✕</button>
       </div>
       <form id="form-editar-acceso" onsubmit="app.guardarEdicionAcceso(event)">
@@ -362,7 +364,7 @@
   <div id="modal-residente" class="modal-backdrop" style="display: none;">
     <div class="card-panel modal-card">
       <div class="card-header">
-        <h2 id="modal-residente-titulo"><span>🏘️</span> Registrar Nuevo Residente</h2>
+        <h2 id="modal-residente-titulo"><i class="bi bi-buildings-fill me-2"></i> Registrar Nuevo Residente</h2>
         <button class="btn btn-secondary" onclick="app.cerrarModales()" style="padding: 0.3rem 0.6rem;">✕</button>
       </div>
       <form id="form-residente" onsubmit="app.guardarResidente(event)">
@@ -395,7 +397,7 @@
   <div id="modal-visitante" class="modal-backdrop" style="display: none;">
     <div class="card-panel modal-card">
       <div class="card-header">
-        <h2 id="modal-visitante-titulo"><span>👤</span> Registrar Nuevo Visitante</h2>
+        <h2 id="modal-visitante-titulo"><i class="bi bi-person-fill me-2"></i> Registrar Nuevo Visitante</h2>
         <button class="btn btn-secondary" onclick="app.cerrarModales()" style="padding: 0.3rem 0.6rem;">✕</button>
       </div>
       <form id="form-visitante" onsubmit="app.guardarVisitante(event)">
